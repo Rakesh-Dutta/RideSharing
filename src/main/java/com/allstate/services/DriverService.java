@@ -34,4 +34,20 @@ public class DriverService {
     public List<Driver> findByGender(Gender gender){
         return this.driverRepository.findByGender(gender);
     }
+
+    void deleteById(int id){
+        this.driverRepository.delete(id);
+    }
+
+    public Driver addVoliation(Driver driver){
+
+        driver.setViolation(driver.getViolation()+1);
+
+        if(driver.getViolation() > 2){
+            driver.setEligible(false);
+        }
+
+        return this.driverRepository.save(driver);
+
+    }
 }

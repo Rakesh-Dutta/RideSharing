@@ -1,7 +1,5 @@
 package com.allstate.entities;
 
-
-import com.allstate.enums.Type;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -11,19 +9,18 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "cities")
 @Data
-public class Car {
+public class City{
 
     private int id;
     private int version;
-    private String model;
-    private String make;
-    private int year;
-    private Type type;
+    private String name;
+    private String state;
+    private double day_rate;
+    private double night_rate;
     private Date created;
     private Date modified;
-
 
     @Id
     @GeneratedValue
@@ -45,40 +42,39 @@ public class Car {
     }
 
     @NotNull
-    public String getModel() {
-        return model;
+    public String getName() {
+        return name;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    @NotNull
-    public String getMake() {
-        return make;
-    }
-
-    public void setMake(String make) {
-        this.make = make;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @NotNull
-    public int getYear() {
-        return year;
+    public String getState() {
+        return state;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    @Column(columnDefinition = "ENUM('BASIC', 'LUX')")
-    @Enumerated(EnumType.STRING)
-    public Type getType() {
-        return type;
+    @NotNull
+    public double getDay_rate() {
+        return day_rate;
     }
 
-    public void setType(Type type) {
-        this.type = type;
+    public void setDay_rate(double day_rate) {
+        this.day_rate = day_rate;
+    }
+
+    @NotNull
+    public double getNight_rate() {
+        return night_rate;
+    }
+
+    public void setNight_rate(double night_rate) {
+        this.night_rate = night_rate;
     }
 
     @CreationTimestamp
@@ -99,3 +95,6 @@ public class Car {
         this.modified = modified;
     }
 }
+
+
+

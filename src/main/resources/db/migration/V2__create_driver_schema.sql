@@ -1,10 +1,12 @@
-CREATE TABLE `driver_info` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `version` INT NOT NULL DEFAULT 0,
-  `name` VARCHAR(45) NOT NULL,
-  `age` INT NOT NULL,
-  `gender` ENUM('M', 'F') NULL,
-  `no_violation` INT NOT NULL DEFAULT 0,
-  `created` TIMESTAMP NULL DEFAULT now(),
-  `modified` TIMESTAMP NULL DEFAULT now(),
-  PRIMARY KEY (`id`));
+CREATE TABLE `drivers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `version` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(45) NOT NULL,
+  `age` int(11) NOT NULL,
+  `gender` enum('M','F') DEFAULT NULL,
+  `violation` int(11) NOT NULL DEFAULT '0',
+  `eligible` tinyint(4) NOT NULL DEFAULT '1',
+  `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;

@@ -92,5 +92,15 @@ public class PassengerServiceTest {
         assertNotEquals(40, passenger.size());
     }
 
+    @Test
+    public void shouldDeletePassengerById() throws Exception{
+        this.passengerService.deleteById(2);
+        Passenger passenger = this.passengerService.findById(2);
+        assertNull(passenger);
+    }
 
+    @Test(expected = org.springframework.dao.EmptyResultDataAccessException.class)
+    public void shouldNotDeletePassengerById() throws Exception{
+        this.passengerService.deleteById(20);
+    }
 }

@@ -10,10 +10,29 @@ insert into passengers (name,gender,age,credit) values
 
 
 
-truncate table driver_info;
+truncate table drivers;
 
-insert into driver_info (name,gender,age,no_violation) values
+insert into drivers (name,gender,age,violation) values
   ('Tiru','M','29',0),
   ('Himanshu','M','21',1),
   ('DD','M','29',2);
+
+
+truncate table cars;
+
+
+insert into cars (model,make,year,type) values
+  ('X5','BMW',2001,'LUX'),
+  ('Swift','Maruti',2015,'BASIC'),
+  ('Hyundai','Verna',2016,'LUX');
+
+
+truncate table cities;
+
+
+insert into cities (name,state,day_rate,night_rate) values
+  ('Delhi','Delhi',12.2,25.0),
+  ('Mumbai','MH',20.00,30.00),
+  ('Pune','MH',10.00,12.00);
+
 

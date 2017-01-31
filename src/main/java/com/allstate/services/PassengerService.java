@@ -37,4 +37,8 @@ public class PassengerService {
     public List<Passenger> findByAgeGreaterThanEqual(int age){
         return this.passengerRepository.findByAgeGreaterThanEqual(age);
     }
+
+    void deleteById(int id){
+        this.passengerRepository.delete(id);
+    }
 }

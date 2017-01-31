@@ -2,6 +2,7 @@ package com.allstate.entities;
 
 
 import com.allstate.enums.Gender;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -11,7 +12,8 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
-@Table(name = "driver_info")
+@Table(name = "drivers")
+@Data
 public class Driver {
     private int id;
     private int version;
@@ -20,7 +22,8 @@ public class Driver {
     private int age;
     private Date created;
     private Date modified;
-    private int no_violation;
+    private int violation;
+    private boolean eligible;
 
     @Id
     @GeneratedValue
@@ -53,6 +56,16 @@ public class Driver {
     public void setModified(Date modified) {this.modified = modified;}
 
     @NotNull
-    public int getNo_violation() {return no_violation;}
-    public void setNo_violation(int no_violation) {this.no_violation = no_violation;}
+    public int getViolation() {return violation;}
+    public void setViolation(int violation) {this.violation = violation;}
+
+    @NotNull
+    public boolean isEligible() {
+        return eligible;
+    }
+    public void setEligible(boolean eligible) {
+        this.eligible = eligible;
+    }
+
+
 }

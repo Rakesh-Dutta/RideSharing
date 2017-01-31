@@ -1,4 +1,4 @@
-CREATE TABLE `car_info` (
+CREATE TABLE `cars` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `version` INT NOT NULL DEFAULT 0,
   `model` VARCHAR(45) NOT NULL,
