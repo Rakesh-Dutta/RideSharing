@@ -1,5 +1,5 @@
 CREATE TABLE `passengers` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id`      INT NOT NULL AUTO_INCREMENT,
   `version` INT NOT NULL DEFAULT 0,
   `name` VARCHAR(45) NULL,
   `gender` ENUM('M', 'F') NULL,
