@@ -34,7 +34,6 @@ public class TripService {
         int violation = trip.getCar().getDriver().getViolation();
         double cost = 0.0;
         double luxCharges = 0.0;
-        //private  SimpleDateFormat startTime = new SimpleDateFormat("yyyy.MM.dd HH.mm.ss");
         Type type = trip.getCar().getType();
 
         if(type.equals(Type.LUX)){
