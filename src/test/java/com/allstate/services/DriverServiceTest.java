@@ -75,11 +75,9 @@ public class DriverServiceTest {
         assertEquals(3,driver.size());
     }
 
-    @Test
+    @Test(expected = org.springframework.dao.DataIntegrityViolationException.class)
     public void shouldDeleteDriverById() throws Exception{
         this.driverService.deleteById(2);
-        Driver driver = this.driverService.findById(2);
-        assertNull(driver);
     }
 
     @Test(expected = org.springframework.dao.EmptyResultDataAccessException.class)
@@ -92,7 +90,7 @@ public class DriverServiceTest {
         Driver driver = this.driverService.findById(3);
         Driver after = this.driverService.addVoliation(driver);
         assertEquals(3,after.getViolation());
-        assertEquals(false,after.isEligible());
+        assertEquals(true,after.isEligible());
     }
 
 }

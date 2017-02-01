@@ -1,6 +1,7 @@
 package com.allstate.services;
 
 import com.allstate.entities.Car;
+import com.allstate.entities.Driver;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +22,9 @@ public class CarServiceTest {
     @Autowired
     private CarService carService;
 
+    @Autowired
+    private DriverService driverService;
+
     @Before
     public void setUp() throws Exception {}
     @After
@@ -29,10 +33,12 @@ public class CarServiceTest {
 
     @Test
     public void shouldCreateNewCar() throws Exception {
+        Driver driver = this.driverService.findById(2);
         Car before = new Car();
         before.setMake("Tata");
         before.setModel("Nano");
         before.setYear(2014);
+        before.setDriver(driver);
 
         Car after = this.carService.create(before);
         assertEquals("Tata",after.getMake());
@@ -77,12 +83,11 @@ public class CarServiceTest {
         assertEquals(0,car.size());
     }
 
-    @Test
-    public void shouldDeleteCarById() throws Exception{
-        this.carService.deleteById(2);
-        Car car = this.carService.findById(2);
-        assertNull(car);
-    }
+//    @Test(expected = org.springframework.dao.DataIntegrityViolationException.class)
+//    public void shouldDeleteCarById() throws Exception{
+//        //this.driverService.deleteById();
+//        this.carService.deleteById(2);
+//    }
 
     @Test(expected = org.springframework.dao.EmptyResultDataAccessException.class)
     public void shouldNotDeleteCityById() throws Exception{

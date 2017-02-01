@@ -43,7 +43,7 @@ public class DriverService {
 
         driver.setViolation(driver.getViolation()+1);
 
-        if(driver.getViolation() > 2){
+        if(driver.getViolation() > 3){
             driver.setEligible(false);
         }
 

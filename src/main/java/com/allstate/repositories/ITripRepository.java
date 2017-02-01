@@ -1,5 +1,8 @@
 package com.allstate.repositories;
 
 
-public interface ITripRepository {
+import com.allstate.entities.Trip;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ITripRepository extends CrudRepository<Trip,Integer>{
 }

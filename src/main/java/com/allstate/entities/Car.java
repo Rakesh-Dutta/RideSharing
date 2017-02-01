@@ -2,6 +2,7 @@ package com.allstate.entities;
 
 
 import com.allstate.enums.Type;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -9,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "cars")
@@ -23,6 +25,7 @@ public class Car {
     private Type type;
     private Date created;
     private Date modified;
+    private Driver driver;
 
 
     @Id
@@ -97,5 +100,30 @@ public class Car {
 
     public void setModified(Date modified) {
         this.modified = modified;
+    }
+
+
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "cars_drivers",
+//            joinColumns = @JoinColumn(name = "car_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "driver_id", referencedColumnName = "id"))
+//    @JsonIgnore
+    //public List<Driver> getDriver() {
+//        return driver;
+//    }
+
+
+   // public void setDriver(List<Driver> driver) {
+       // this.driver = driver;
+    //}
+
+    @ManyToOne
+    @JoinColumn(name="driver_id")
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
     }
 }
